@@ -50,5 +50,5 @@ if __name__ == '__main__':
             text = path.read_text()
             if re.search(r'gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9_-]{20,}|' + '/' + 'Users' + '/' + '|' + '-----BEGIN ' + r'.*PRIVATE KEY' + '-----', text):
                 raise ValueError('Unexpected private content in ' + name)
-    write_zip('CE-AI-starter.zip', starter)
-    write_zip('CE-AI-toolkit.zip', toolkit)
+    write_zip('Artificial-IntelligenCE-starter.zip', starter)
+    write_zip('Artificial-IntelligenCE-toolkit.zip', toolkit)

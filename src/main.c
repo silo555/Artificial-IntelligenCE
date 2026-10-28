@@ -1,4 +1,4 @@
-/* CE AI experiment: local integer neural inference. MIT; see LICENSE. */
+/* Artificial IntelligenCE experiment: local integer neural inference. MIT; see LICENSE. */
 #include <tice.h>
 #include <graphx.h>
 #include <fileioc.h>
@@ -32,7 +32,7 @@ static void wrapped(const char *s, unsigned row, unsigned max_rows) {
 static void screen(void) {
     char buffer[80];
     gfx_FillScreen(255); gfx_SetTextFGColor(0); gfx_SetTextBGColor(255);
-    line("CE AI / OFFLINE NEURAL EXPERIMENT", 0);
+    line("Artificial IntelligenCE", 0);
     snprintf(buffer, sizeof(buffer), "%u hidden / %u chars / %u bytes", model.h, model.v, model_size); line(buffer, 1);
     line(ram_model ? "48 MHz / int8 / RAM copy" : source_archived ? "48 MHz / int8 / flash weights" : "48 MHz / int8 / AppVar RAM", 2);
     line("Prompt:", 3); wrapped(prompt, 4, 3);

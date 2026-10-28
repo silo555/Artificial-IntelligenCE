@@ -86,7 +86,7 @@ def appvar(data, name='CEAIMDL'):
         raise ValueError('AppVar payload too large')
     variable = struct.pack('<H', len(data)) + data
     entry = struct.pack('<HHB8sBBH', 13, len(variable), 21, name.encode().ljust(8, b'\0'), 0, 128, len(variable)) + variable
-    header = b'**TI83F*\x1a\x0a\x00' + b'CE AI local neural model'.ljust(42, b'\0') + struct.pack('<H', len(entry))
+    header = b'**TI83F*\x1a\x0a\x00' + b'Artificial IntelligenCE local neural model'.ljust(42, b'\0') + struct.pack('<H', len(entry))
     return header + entry + struct.pack('<H', sum(entry) & 65535)
 
 if __name__ == '__main__':

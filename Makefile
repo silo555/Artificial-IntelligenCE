@@ -1,5 +1,5 @@
 NAME = CEAI
-DESCRIPTION = "Offline tiny neural AI"
+DESCRIPTION = "Artificial IntelligenCE"
 COMPRESSED = NO
 ARCHIVED = YES
 CFLAGS = -Wall -Wextra -O2

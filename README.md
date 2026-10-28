@@ -1,4 +1,4 @@
-# CE AI — offline calculator neural experiment
+# Artificial IntelligenCE — offline calculator neural experiment
 
 A tiny character-level recurrent neural network that generates text **on a TI-84 Plus CE**. Training happens locally on a computer; after transferring the program and model, inference needs no computer, internet, account, or API key.
 
@@ -10,14 +10,14 @@ Performance update: the app now selects stock 48 MHz CPU mode, uses a faster nat
 
 ## Download
 
-- [Calculator starter ZIP](https://github.com/silo555/ce-ai/releases/latest/download/CE-AI-starter.zip): program, model, runtime libraries, and installation instructions.
-- [Source and training toolkit ZIP](https://github.com/silo555/ce-ai/releases/latest/download/CE-AI-toolkit.zip): trainer, exporter, inference engine, models, and tests.
+- [Calculator starter ZIP](https://github.com/silo555/Artificial-IntelligenCE/releases/latest/download/Artificial-IntelligenCE-starter.zip): program, model, runtime libraries, and installation instructions.
+- [Source and training toolkit ZIP](https://github.com/silo555/Artificial-IntelligenCE/releases/latest/download/Artificial-IntelligenCE-toolkit.zip): trainer, exporter, inference engine, models, and tests.
 
 Start with the calculator ZIP. This is an experimental prototype; calculator execution and actual speed have not yet been verified on hardware.
 
 ## Try the calculator build
 
-The generated `outputs/CE-AI-starter.zip` contains:
+The generated `outputs/Artificial-IntelligenCE-starter.zip` contains:
 
 - `CEAI.8xp`: the native calculator program.
 - `demo.8xv`: the 96-hidden-unit model, installed as AppVar **CEAIMDL**.
@@ -49,13 +49,13 @@ user: hello
 bot: hello! i am a tiny calculator bot.
 
 user: who are you
-bot: i am ce ai, a tiny neural experiment.
+bot: i am artificial intelligence, a tiny neural experiment.
 
 user: what is a model
 bot: a model is a set of learned numerical weights.
 
 user: what is love
-bot: a bot: numbercusatlo
+bot: a square has four equal sides and four right angles.
 ```
 
 The train/validation split holds out a tail of the same repeated corpus. The metrics in `models/demo.json` are next-character metrics on that corpus and **do not measure generalization to unseen questions**.
@@ -88,16 +88,16 @@ For your own corpus, use lowercase printable ASCII and newlines, ideally in this
 
 ```text
 user: hello
-bot: hello there!
+bot: hello! i am a tiny calculator bot.
 
 user: who are you
-bot: i am a tiny calculator experiment.
+bot: i am artificial intelligence, a tiny neural experiment.
 ```
 
 ```sh
 .venv/bin/python tools/train.py --data data/my-corpus.txt --output models/custom --hidden 96 --steps 18000 --sequence 96
 .venv/bin/python tools/model.py models/custom.bin --prompt 'user: hello
-bot: ' --count 120
+bot: hello! i am a tiny calculator bot.
 .venv/bin/python tools/model_info.py models/custom.bin
 ```
 
@@ -127,7 +127,7 @@ The desktop runner uses the **same C inference engine**:
 mkdir -p outputs
 clang -std=c11 -Wall -Wextra -Werror -O2 src/rnn.c tools/desktop.c -o outputs/ceai-desktop
 outputs/ceai-desktop models/demo.bin 'user: hello
-bot: ' 120
+bot: hello! i am a tiny calculator bot.
 .venv/bin/python tests/check.py
 ```
 

@@ -1,4 +1,4 @@
-CE AI — first offline neural prototype
+Artificial IntelligenCE — first offline neural prototype
 
 1. A compatible native-program launcher must already work on your TI-84 Plus CE.
    This package does not install a launcher, modify the OS, or reset memory.
@@ -31,6 +31,6 @@ The app opens CEAIMDL read-only; it does not change your notes, programs, or mod
 If it says the model is missing, check that CEAIMDL is present as an AppVar.
 If it rejects a model, transfer a fresh demo.8xv.
 
-CE AI source, original corpus and models: MIT, see LICENSE.
+Artificial IntelligenCE source, original corpus and models: MIT, see LICENSE.
 Official CE libraries: BSD-2-Clause, see CE-LIBRARIES-LICENSE.txt.
 Official library source/download: https://github.com/CE-Programming/libraries/releases/tag/v15.0

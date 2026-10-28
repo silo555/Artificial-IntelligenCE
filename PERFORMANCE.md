@@ -12,7 +12,7 @@ The model was already quantized: signed 8-bit Q6 weights and Q7 recurrent state,
 - **TRACE** toggles an optional full model copy in heap RAM. If allocation fails, direct AppVar reads remain active. The original model AppVar is opened read-only in both modes. The copy is freed on toggle or exit.
 - **GRAPH** measures 128 neural steps at the current memory placement. It reports raw clock ticks and clock frequency so timing remains interpretable. Run once with direct archived weights, then TRACE and GRAPH again to compare RAM. A RAM copy is not assumed to be faster.
 
-The default app's model file remains 15,738 bytes. The new calculator program is 18,498 bytes, versus 14,289 bytes in the first size-oriented build.
+The default app's model file remains 15,738 bytes. The new calculator program is 18489 bytes, versus 14,289 bytes in the first size-oriented build.
 
 ## Verified evidence
 
@@ -48,7 +48,7 @@ On the supplied repeated toy corpus, direct post-training reduction damaged fami
 
 | Coefficient grid | Reply to `hello` |
 | --- | --- |
-| 4-bit equivalent | `e  how` |
+| 4-bit equivalent | `a porincta wint of inttorsingraction my ainy ei ancanctooreot.` |
 | 6-bit equivalent | `gravity frightrbins.` |
 | 8-bit | `hello! i am a tiny calculator bot.` |
 
