@@ -8,6 +8,13 @@ This first prototype includes a NumPy trainer, integer inference engine, Python 
 
 Performance update: the app now selects stock 48 MHz CPU mode, uses a faster native-width integer kernel, throttles display redraws, and offers a RAM-copy comparison. See [PERFORMANCE.md](PERFORMANCE.md) for the evidence and hardware limits.
 
+## Download
+
+- [Calculator starter ZIP](https://github.com/silo555/ce-ai/releases/latest/download/CE-AI-starter.zip): program, model, runtime libraries, and installation instructions.
+- [Source and training toolkit ZIP](https://github.com/silo555/ce-ai/releases/latest/download/CE-AI-toolkit.zip): trainer, exporter, inference engine, models, and tests.
+
+Start with the calculator ZIP. This is an experimental prototype; calculator execution and actual speed have not yet been verified on hardware.
+
 ## Try the calculator build
 
 The generated `outputs/CE-AI-starter.zip` contains:
