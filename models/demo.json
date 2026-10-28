@@ -1,0 +1,23 @@
+{
+  "architecture": "character RNN, hard-tanh, Q6 int8 weights, Q7 state",
+  "hidden": 96,
+  "alphabet": 33,
+  "model_bytes": 15738,
+  "weight_parameters": 15681,
+  "macs_per_step": 12384,
+  "steps": 18000,
+  "seed": 42,
+  "sequence": 96,
+  "learning_rate": 0.03,
+  "numpy_version": "2.5.4",
+  "corpus_sha256": "cf0a802dbf4d4f52e4d5dca553ac2ffb43cd3ef472dcea2bc9a469a7462f6829",
+  "corpus_characters": 20248,
+  "train_characters": 18223,
+  "validation_characters": 2024,
+  "last_100_train_loss": 0.18937000661503095,
+  "quantized_validation_loss": 0.10919343055558357,
+  "quantized_validation_accuracy": 0.9777667984189723,
+  "desktop_training_seconds": 48.535235333954915,
+  "warning": "Tiny demonstration corpus. Validation is same-domain and may share phrases. Not evidence of general conversation or reasoning.",
+  "calculator_speed": "Not measured; desktop timing is not calculator timing"
+}

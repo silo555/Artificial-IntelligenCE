@@ -1,0 +1,32 @@
+CE AI — first offline neural prototype
+
+1. A compatible native-program launcher must already work on your TI-84 Plus CE.
+   This package does not install a launcher, modify the OS, or reset memory.
+2. Transfer CEAI.8xp, demo.8xv, and clibs.8xg to the calculator. Use archive storage.
+   demo.8xv installs a model variable named CEAIMDL. It replaces any existing
+   variable of that name/type. Only one CEAIMDL model is loaded at a time.
+3. Launch CEAI. Press GRAPH first to measure inference speed and RAM.
+   Photograph the benchmark screen so we can choose a good model size.
+4. Press 2nd to generate from the initial 'hello' prompt.
+5. ENTER edits the prompt. Arrows select a character; ENTER adds it;
+   DEL erases; 2nd returns to the main screen.
+6. CLEAR stops generation between neural steps; from the main screen it exits.
+
+Try: hello / who are you / what is a model / what is gravity / tell me a joke
+
+The model really runs neural calculations locally; no API or connection is used.
+It was trained on a tiny original demo corpus and mostly memorizes those phrases.
+Unfamiliar questions can produce gibberish. It cannot be trusted for factual or
+mathematical answers. It does not learn or save conversations on the calculator.
+
+Verified: CE compilation, desktop generation, exact C/Python numerical parity,
+corrupt-file rejection, and TI file checksums.
+Not yet verified: physical calculator launch, display, keypad, and speed.
+
+The app opens CEAIMDL read-only; it does not change your notes, programs, or model.
+If it says the model is missing, check that CEAIMDL is present as an AppVar.
+If it rejects a model, transfer a fresh demo.8xv.
+
+CE AI source, original corpus and models: MIT, see LICENSE.
+Official CE libraries: BSD-2-Clause, see CE-LIBRARIES-LICENSE.txt.
+Official library source/download: https://github.com/CE-Programming/libraries/releases/tag/v15.0

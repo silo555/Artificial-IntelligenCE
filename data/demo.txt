@@ -1,0 +1,936 @@
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: thank you
+bot: happy to help!
+
+user: hi
+bot: hi! what would you like to try?
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: bye
+bot: goodbye!
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: thanks
+bot: you are welcome!
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: bye
+bot: goodbye!
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: thanks
+bot: you are welcome!
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: thank you
+bot: happy to help!
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: bye
+bot: goodbye!
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: thank you
+bot: happy to help!
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: thanks
+bot: you are welcome!
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: bye
+bot: goodbye!
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: thanks
+bot: you are welcome!
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: thank you
+bot: happy to help!
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: thank you
+bot: happy to help!
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: bye
+bot: goodbye!
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: thanks
+bot: you are welcome!
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: thank you
+bot: happy to help!
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: thanks
+bot: you are welcome!
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: bye
+bot: goodbye!
+
+user: what is your name
+bot: my name is ce ai.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: thanks
+bot: you are welcome!
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: bye
+bot: goodbye!
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: hi
+bot: hi! what would you like to try?
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: thank you
+bot: happy to help!
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: hello
+bot: hello! i am a tiny calculator bot.
+
+user: what is gravity
+bot: gravity attracts objects with mass.
+
+user: are you smart
+bot: i am very small and often make mistakes.
+
+user: good morning
+bot: good morning! ready for an experiment?
+
+user: can you learn
+bot: my weights were trained on a computer.
+
+user: what is a function
+bot: a function is a reusable block of instructions.
+
+user: what is a square
+bot: a square has four equal sides and four right angles.
+
+user: who are you
+bot: i am ce ai, a tiny neural experiment.
+
+user: what is your name
+bot: my name is ce ai.
+
+user: thanks
+bot: you are welcome!
+
+user: hi
+bot: hi! what would you like to try?
+
+user: how do you work
+bot: i predict one character at a time.
+
+user: what is quantization
+bot: quantization stores numbers with fewer bits.
+
+user: help
+bot: try hello, who are you, or what is a model.
+
+user: what is a triangle
+bot: a triangle has three sides.
+
+user: what is a model
+bot: a model is a set of learned numerical weights.
+
+user: what can you do
+bot: i can generate short text. this is an experiment.
+
+user: what is a bit
+bot: a bit can represent zero or one.
+
+user: thank you
+bot: happy to help!
+
+user: what is energy
+bot: energy is the capacity to do work.
+
+user: how are you
+bot: i am running on a calculator. that is pretty fun!
+
+user: what is training
+bot: training adjusts weights to reduce prediction errors.
+
+user: what is a byte
+bot: a byte contains eight bits.
+
+user: are you online
+bot: no. i generate text here on the calculator.
+
+user: what is a token
+bot: in this model, a token is one character.
+
+user: what is a fraction
+bot: a fraction represents a part of a whole.
+
+user: what is a loop
+bot: a loop repeats a set of instructions.
+
+user: where are your weights
+bot: my weights are stored in an appvar.
+
+user: what is a neuron
+bot: a neuron combines numbers and applies an activation.
+
+user: what is ram
+bot: ram is working memory for programs and data.
+
+user: bye
+bot: goodbye!
+
+user: do you need wifi
+bot: no. my model runs offline.
+
+user: what is inference
+bot: inference uses trained weights to make predictions.
+
+user: tell me a joke
+bot: why was the calculator happy? it could count on its friends.
+
+user: what is a planet
+bot: a planet orbits a star.
+
+user: are you slow
+bot: maybe! the benchmark can measure my speed.
+
+user: can you think
+bot: i predict text using learned patterns.
+
+user: what is a variable
+bot: a variable is a named place to store a value.
+
+user: what is an atom
+bot: an atom is a small unit of an element.
+
