@@ -10,7 +10,9 @@ CE AI — first offline neural prototype
 4. Press 2nd to generate from the initial 'hello' prompt.
 5. ENTER edits the prompt. Arrows select a character; ENTER adds it;
    DEL erases; 2nd returns to the main screen.
-6. CLEAR stops generation between neural steps; from the main screen it exits.
+6. TRACE toggles a temporary RAM model copy; GRAPH measures that mode. Compare
+   with direct archived reads to find which is faster on your calculator.
+7. CLEAR stops generation between neural steps; from the main screen it exits.
 
 Try: hello / who are you / what is a model / what is gravity / tell me a joke
 
@@ -23,6 +25,8 @@ Verified: CE compilation, desktop generation, exact C/Python numerical parity,
 corrupt-file rejection, and TI file checksums.
 Not yet verified: physical calculator launch, display, keypad, and speed.
 
+The app selects normal 48 MHz CPU mode; it does not overclock beyond that.
+It does not alter VRAM/LCD timing or flash wait states.
 The app opens CEAIMDL read-only; it does not change your notes, programs, or model.
 If it says the model is missing, check that CEAIMDL is present as an AppVar.
 If it rejects a model, transfer a fresh demo.8xv.

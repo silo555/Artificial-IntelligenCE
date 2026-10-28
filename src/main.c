@@ -3,6 +3,8 @@
 #include <graphx.h>
 #include <fileioc.h>
 #include <keypadc.h>
+#include <sys/power.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -15,6 +17,8 @@ static unsigned cursor;
 static size_t free_ram;
 static uint16_t model_size;
 static uint8_t handle;
+static uint8_t *ram_model;
+static bool source_archived;
 static uint8_t key(void) { uint8_t k; do { k = os_GetCSC(); } while (!k); return k; }
 static void line(const char *text, unsigned row) { gfx_PrintStringXY(text, 8, (int)(row * 10 + 6)); }
 static void wrapped(const char *s, unsigned row, unsigned max_rows) {
@@ -30,11 +34,12 @@ static void screen(void) {
     gfx_FillScreen(255); gfx_SetTextFGColor(0); gfx_SetTextBGColor(255);
     line("CE AI / OFFLINE NEURAL EXPERIMENT", 0);
     snprintf(buffer, sizeof(buffer), "%u hidden / %u chars / %u bytes", model.h, model.v, model_size); line(buffer, 1);
+    line(ram_model ? "48 MHz / int8 / RAM copy" : source_archived ? "48 MHz / int8 / flash weights" : "48 MHz / int8 / AppVar RAM", 2);
     line("Prompt:", 3); wrapped(prompt, 4, 3);
     line("Reply:", 8); wrapped(reply, 9, 7);
     wrapped(status, 17, 2);
     line("ENTER type   2nd generate", 20);
-    line("GRAPH benchmark   CLEAR quit", 21);
+    line("GRAPH timing  TRACE RAM  CLEAR quit", 21);
     gfx_BlitBuffer();
 }
 static void keyboard(void) {
@@ -73,9 +78,10 @@ static bool feed_text(const char *text, int *next) {
     return true;
 }
 static void generate(void) {
-    unsigned count = 0; int next = 0; clock_t start, elapsed;
+    unsigned count = 0; int next = 0; clock_t start, elapsed, last_draw;
+    boot_Set48MHzModeI();
     rnn_reset(&model); reply[0] = 0;
-    strcpy(status, "Processing prompt... CLEAR stops."); screen(); start = clock();
+    strcpy(status, "Processing prompt... CLEAR stops."); screen(); start = last_draw = clock();
     if (!feed_text("user: ", &next) || !feed_text(prompt, &next) || !feed_text("\nbot: ", &next)) return;
     for (; count < 240; ++count) {
         if (cancelled()) break;
@@ -84,7 +90,9 @@ static void generate(void) {
         if (c == '\n') break;
         reply[count] = c; reply[count + 1] = 0;
         next = rnn_step(&model, (unsigned)next);
-        screen();
+        if (clock() - last_draw >= CLOCKS_PER_SEC / 8) {
+            screen(); last_draw = clock();
+        }
     }
     elapsed = clock() - start;
     snprintf(status, sizeof(status), "%u chars / %lu ms incl. prompt+UI", count,
@@ -93,6 +101,7 @@ static void generate(void) {
 static void benchmark(void) {
     const unsigned steps = 128; unsigned done = 0; int next = 0;
     clock_t start, elapsed; void *unused;
+    boot_Set48MHzModeI();
     free_ram = os_MemChk(&unused);
     rnn_reset(&model); reply[0] = 0;
     strcpy(status, "Timing 128 neural steps. CLEAR stops."); screen();
@@ -102,10 +111,28 @@ static void benchmark(void) {
         next = rnn_step(&model, (unsigned)next);
     }
     elapsed = clock() - start;
-    snprintf(reply, sizeof(reply), "Neural steps: %u\nElapsed clock ticks: %lu\nClock ticks/second: %lu\nMACs per step: %lu\nOS free RAM: %u bytes\nModel state struct: %u bytes\nModel stays in read-only storage.",
+    snprintf(reply, sizeof(reply), "Neural steps: %u\nElapsed clock ticks: %lu\nClock ticks/second: %lu\nMACs per step: %lu\nOS free RAM: %u bytes\nModel state struct: %u bytes\nModel source shown above.",
         done, (unsigned long)elapsed, (unsigned long)CLOCKS_PER_SEC, (unsigned long)rnn_macs(&model),
         (unsigned)free_ram, (unsigned)sizeof(model));
-    strcpy(status, "Photograph these results for sizing.");
+    strcpy(status, ram_model ? "RAM test. TRACE returns to AppVar." : "Direct test. TRACE tries RAM copy.");
+}
+static void toggle_ram(void) {
+    const char *error;
+    if (ram_model) {
+        error = rnn_load(&model, ti_GetDataPtr(handle), model_size);
+        free(ram_model); ram_model = NULL;
+        strcpy(status, error ? error : "Direct weights. GRAPH measures speed.");
+        return;
+    }
+    ram_model = malloc(model_size);
+    if (!ram_model) { strcpy(status, "No heap space for RAM copy. Using AppVar."); return; }
+    memcpy(ram_model, ti_GetDataPtr(handle), model_size);
+    error = rnn_load(&model, ram_model, model_size);
+    if (error) {
+        free(ram_model); ram_model = NULL;
+        (void)rnn_load(&model, ti_GetDataPtr(handle), model_size);
+        strcpy(status, "RAM copy rejected; direct access restored.");
+    } else strcpy(status, "RAM weights. GRAPH measures speed.");
 }
 int main(void) {
     const char *error; void *unused;
@@ -117,11 +144,13 @@ int main(void) {
         gfx_BlitBuffer(); key(); gfx_End(); return 1;
     }
     model_size = ti_GetSize(handle);
+    source_archived = ti_IsArchived(handle);
     error = rnn_load(&model, ti_GetDataPtr(handle), model_size);
     if (error) {
         gfx_FillScreen(255); line(error, 3); line("Press any key to exit.", 5);
         gfx_BlitBuffer(); key(); ti_Close(handle); gfx_End(); return 1;
     }
+    boot_Set48MHzModeI();
     free_ram = os_MemChk(&unused);
     for (unsigned i = 0; i < model.v; ++i) if (model.vocab[i] != '\n') keys[key_count++] = (char)model.vocab[i];
     if (rnn_token(&model, 'h') < 0 || rnn_token(&model, 'e') < 0 || rnn_token(&model, 'l') < 0 || rnn_token(&model, 'o') < 0) prompt[0] = 0;
@@ -132,7 +161,8 @@ int main(void) {
             case sk_Enter: keyboard(); break;
             case sk_2nd: generate(); break;
             case sk_Graph: benchmark(); break;
-            case sk_Clear: ti_Close(handle); gfx_End(); return 0;
+            case sk_Trace: toggle_ram(); break;
+            case sk_Clear: free(ram_model); ti_Close(handle); gfx_End(); return 0;
         }
     }
 }

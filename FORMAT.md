@@ -17,7 +17,7 @@ All multibyte header integers are unsigned little-endian. The file is independen
 | next | VH | output weights Wy, V rows by H columns |
 | next | V | output bias by |
 
-Weights/biases are row-major signed 8-bit two's-complement Q6 numbers. Export rounds float weights to the nearest representable value using NumPy's ties-to-even rounding. State values represent h/127 and are clamped to [-127,127]. Accumulators/output scores are signed 32-bit values. The engine uses no floating-point arithmetic.
+Weights/biases are row-major signed 8-bit two's-complement Q6 numbers. Export rounds float weights to the nearest representable value using NumPy's ties-to-even rounding. State values represent h/127 and are clamped to [-127,127]. Output scores are signed 32-bit values. The eZ80 engine uses native signed 24-bit accumulators (the maximum magnitude is bounded by 2,113,280); the desktop reference uses signed 32-bit accumulators. The engine uses no floating-point arithmetic.
 
 For an input character index x:
 

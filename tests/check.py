@@ -10,6 +10,7 @@ import unittest
 import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
+from quantize import quantize
 from model import IntegerRNN, NAMES, HEADER, encode, decode, appvar, shapes, fnv
 
 class Tests(unittest.TestCase):
@@ -85,6 +86,25 @@ class Tests(unittest.TestCase):
             blob = encode(str(checkpoint['vocab']), {k: checkpoint[k] for k in NAMES})
         self.assertEqual(blob, output.with_suffix('.bin').read_bytes())
         self.assertEqual(appvar(blob), output.with_suffix('.8xv').read_bytes())
+    def test_eight_bit_quantization_is_identical_and_lower_bits_use_expected_grids(self):
+        with np.load(ROOT/'models/demo.npz', allow_pickle=False) as file:
+            vocab = str(file['vocab']); params = {k: file[k] for k in NAMES}
+        self.assertEqual(encode(vocab, quantize(params, 8)), (ROOT/'models/demo.bin').read_bytes())
+        for bits, step in [(4, 16), (6, 4)]:
+            _, q = decode(encode(vocab, quantize(params, bits)))
+            for value in q.values(): self.assertTrue(np.all(value % step == 0))
+    def test_accumulator_extremes_preserve_parity(self):
+        h, v = 128, 2; vocab = ' ab'[:v]
+        for sign in [-1, 1]:
+            params = {name: np.full(shape, sign*127/64) for name, shape in zip(NAMES, shapes(h, v))}
+            blob = encode(vocab, params); model = IntegerRNN(blob)
+            result = self.run_c(blob, ' ', 5, True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            token = 0
+            for trace in [json.loads(line) for line in result.stdout.splitlines()]:
+                self.assertEqual(trace[0], token)
+                token = model.step(token)
+                self.assertEqual(trace[1], model.h.tolist()); self.assertEqual(trace[2], model.logits.tolist())
     def test_cli_rejects_unknown_prompt_character(self):
         result = self.run_c(self.random_model(), 'z')
         self.assertNotEqual(result.returncode, 0)

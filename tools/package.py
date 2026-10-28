@@ -39,7 +39,7 @@ if __name__ == '__main__':
         'clibs.8xg': OUTPUT/'dependencies/clibs.8xg',
         'CE-LIBRARIES-LICENSE.txt': OUTPUT/'dependencies/CE-LIBRARIES-LICENSE.txt',
         'INSTALL.txt': ROOT/'INSTALL.txt', 'LICENSE': ROOT/'LICENSE'}
-    toolkit = {name: ROOT/name for name in ['README.md', 'INSTALL.txt', 'FORMAT.md', 'LICENSE', 'requirements.txt', 'Makefile', '.gitignore']}
+    toolkit = {name: ROOT/name for name in ['README.md', 'INSTALL.txt', 'FORMAT.md', 'PERFORMANCE.md', 'LICENSE', 'requirements.txt', 'Makefile', '.gitignore']}
     for folder in ['src', 'tools', 'tests', 'data', 'models']:
         for path in (ROOT/folder).rglob('*'):
             if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc':

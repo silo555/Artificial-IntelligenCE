@@ -6,6 +6,8 @@ This first prototype includes a NumPy trainer, integer inference engine, Python 
 
 **Status:** native calculator compilation and desktop numerical tests pass. The included model gives coherent replies to several prompts represented in its tiny training corpus. **Physical calculator execution, keypad/display behavior, and calculator speed remain unverified.**
 
+Performance update: the app now selects stock 48 MHz CPU mode, uses a faster native-width integer kernel, throttles display redraws, and offers a RAM-copy comparison. See [PERFORMANCE.md](PERFORMANCE.md) for the evidence and hardware limits.
+
 ## Try the calculator build
 
 The generated `outputs/CE-AI-starter.zip` contains:
@@ -19,12 +21,13 @@ The generated `outputs/CE-AI-starter.zip` contains:
 2. Transfer the three calculator files using TI Connect CE or a compatible transfer tool. Prefer archive storage. CE Link accepts these file types, although its physical USB transfer is also still unverified.
 3. Launch **CEAI**. It reads **CEAIMDL** without changing other variables.
 4. Press **GRAPH** for the benchmark. Photograph the result screen to capture neural steps, elapsed clock ticks, ticks/second, multiply-accumulate operations per step, OS free RAM, and the model state struct size. Desktop timing is not an estimate of calculator speed.
-5. Press **2nd** to generate from the initial `hello` prompt. Press **ENTER** to edit prompts with the on-screen keyboard: arrows select, ENTER adds a character, DEL erases, 2nd finishes editing. The keyboard contains only characters supported by the loaded model.
-6. **CLEAR** stops prompt processing/generation between neural steps; from the main screen it exits. One slow neural step must finish before cancellation is checked.
+5. **TRACE** toggles an optional model copy in RAM. Run GRAPH in both memory modes to compare; RAM is not assumed faster. Allocation failure leaves direct AppVar access active.
+6. Press **2nd** to generate from the initial `hello` prompt. Press **ENTER** to edit prompts with the on-screen keyboard: arrows select, ENTER adds a character, DEL erases, 2nd finishes editing. The keyboard contains only characters supported by the loaded model.
+7. **CLEAR** stops prompt processing/generation between neural steps; from the main screen it exits. One slow neural step must finish before cancellation is checked.
 
 Try `hello`, `who are you`, `what is a model`, `what is gravity`, and `tell me a joke`. The app wraps the text as `user: ...\nbot: ` and stops at the first generated newline or 240 characters. It resets neural state for each request; it does not yet remember previous conversations or learn on the calculator.
 
-Only one model is loaded at a time. Exported models default to the same CEAIMDL variable name, so transferring another model replaces that model variable. The program opens it read-only and does not create conversation/settings files.
+Only one model is loaded at a time. Exported models default to the same CEAIMDL variable name, so transferring another model replaces that model variable. The program opens it read-only and does not create conversation/settings files. An optional RAM copy is temporary and freed on exit.
 
 ## What this model actually does
 
@@ -57,7 +60,7 @@ The train/validation split holds out a tail of the same repeated corpus. The met
 | `models/tiny64.*` | 64 | 8,474 | 6,208 | Smaller baseline; less coherent |
 | `models/demo.*` | 96 | 15,738 | 12,384 | Default trained demonstration |
 
-Both use 33 characters. Weights are signed 8-bit fixed-point values. The engine points directly into read-only model storage; it does not copy the full model into RAM. Recurrent state, output scores, screen buffers, runtime, stack, and other app data still use RAM. The on-device benchmark reports actual OS free RAM and `sizeof` the model structure; neither is a claim that all remaining RAM is available as one allocation.
+Both use 33 characters. Weights are signed 8-bit fixed-point values. The engine defaults to direct read-only model storage. TRACE optionally copies the full model into heap RAM for comparison. Recurrent state, output scores, screen buffers, runtime, stack, optional model copy, and other app data use RAM. The on-device benchmark reports actual OS free RAM and `sizeof` the model structure; neither is a claim that all remaining RAM is available as one allocation.
 
 The current file format supports at most 128 hidden units and 96 characters, in a single AppVar. Those are implementation limits, not a promise that larger models would produce better answers.
 
@@ -143,6 +146,8 @@ The fetcher verifies SHA-256 hashes before saving. `tools/package.py` creates th
 - `models/*.npz`, `*.bin`, `*.8xv`, `*.json`: float checkpoints, integer models, calculator files, training reports.
 - `data/demo.txt`, `tools/make_demo.py`: original toy corpus and deterministic generator.
 - `FORMAT.md`: byte layout and arithmetic rules.
+- `PERFORMANCE.md`: runtime changes, quantization experiments, clock and memory limits.
+- `tools/quantize.py`, `tools/check_codegen.py`: lower-bit quality comparison and target assembly checks.
 
 No paid services, API credentials, external model downloads, or ROM images are needed. Source, original corpus, and included trained model files are MIT licensed. Official CE libraries retain their own BSD license. This project is independent of Texas Instruments.
 

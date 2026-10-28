@@ -13,5 +13,5 @@ print(json.dumps({'hidden': h, 'vocabulary': repr(vocab), 'alphabet_size': v,
     'macs_per_character': h*h + h*v,
     'recurrent_state_bytes_used': h, 'logit_bytes_used': 4*v,
     'engine_allocates': 'fixed 128-byte state + 384-byte logits + model pointers; 128-byte step scratch; compiler padding/stack additional',
-    'weight_access': 'direct read-only pointer into the model AppVar; no full model RAM copy',
+    'weight_access': 'default direct read-only AppVar pointer; optional TRACE RAM copy in calculator UI',
     'calculator_characters_per_second': None, 'status': 'requires physical benchmark'}, indent=2))

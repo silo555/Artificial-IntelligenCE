@@ -35,21 +35,42 @@ int rnn_token(const rnn_t *m, char c) {
     for (unsigned i = 0; i < m->v; ++i) if (m->vocab[i] == (uint8_t)c) return (int)i;
     return -1;
 }
+/* H<=128, |weight|<=128 and |state|<=127 bound all sums below
+ * 2,113,792, well inside a signed 24-bit accumulator. Use the native CE
+ * register width instead of invoking 32-bit arithmetic helpers per MAC. */
+#if defined(__ez80__)
+typedef int24_t rnn_acc_t;
+#else
+typedef int32_t rnn_acc_t;
+#endif
 int rnn_step(rnn_t *m, unsigned token) {
     int8_t next[RNN_MAX_H];
+    const int8_t *recurrent = m->wh, *output = m->wy, *input;
     int best = 0;
     if (token >= m->v || !m->h || !m->v) return -1;
-    for (unsigned i = 0; i < m->h; ++i) {
-        int32_t sum = ((int32_t)m->wx[(size_t)i * m->v + token] + m->bh[i]) * 127;
-        for (unsigned j = 0; j < m->h; ++j) sum += (int32_t)m->wh[(size_t)i * m->h + j] * m->state[j];
-        sum = sum >= 0 ? (sum + 32) / 64 : -((-sum + 32) / 64);
-        next[i] = (int8_t)(sum > 127 ? 127 : sum < -127 ? -127 : sum);
+    input = m->wx + token;
+    for (unsigned i = 0; i < m->h; ++i, input += m->v) {
+        rnn_acc_t sum = ((rnn_acc_t)*input + m->bh[i]) * 127;
+        const int8_t *state = m->state;
+        unsigned count = m->h;
+        do {
+            /* An 8x8 signed product fits exactly in int16_t. */
+            sum += (int16_t)((int16_t)*recurrent++ * (int16_t)*state++);
+        } while (--count);
+        /* Saturate before normalization. Within this range 16-bit magnitude
+         * arithmetic suffices; unsigned division by 64 is a bit shift. */
+        if (sum >= 8128) next[i] = 127;
+        else if (sum <= -8128) next[i] = -127;
+        else if (sum >= 0) next[i] = (int8_t)(((uint16_t)sum + 32u) >> 6);
+        else next[i] = (int8_t)-(int16_t)(((uint16_t)-sum + 32u) >> 6);
     }
     memcpy(m->state, next, m->h);
     for (unsigned i = 0; i < m->v; ++i) {
-        int32_t sum = (int32_t)m->by[i] * 127;
-        for (unsigned j = 0; j < m->h; ++j) sum += (int32_t)m->wy[(size_t)i * m->h + j] * next[j];
-        m->logits[i] = sum;
+        rnn_acc_t sum = (rnn_acc_t)m->by[i] * 127;
+        const int8_t *state = next;
+        unsigned count = m->h;
+        do { sum += (int16_t)((int16_t)*output++ * (int16_t)*state++); } while (--count);
+        m->logits[i] = (int32_t)sum;
         if (sum > m->logits[best]) best = (int)i;
     }
     return best;
